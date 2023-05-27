@@ -1,0 +1,29 @@
+1) SELECT p.name AS 'Продукт', s.name AS 'Поставщик', sl.date_of_sale AS 'Дата поставки'
+FROM Product p LEFT JOIN Supplier s ON p.id_producer = s.id
+JOIN Sale sl ON sl.id = s.id
+
+2)SELECT r.name
+FROM Region r
+LEFT JOIN Producer pr ON pr.id address
+WHERE pr.id IS NULL
+
+3) SELECT name AS 'Категория'
+FROM Category
+EXCEPT
+SELECT DISTINCT c.name
+FROM Category c
+JOIN Product p ON p.id_category = c.id
+JOIN Delivery d ON d.id_product = p.id
+JOIN Supplier s ON d.id_supplier = s.id
+WHERE s.name != 'Нли Ю'
+
+4)SELECT name
+FROM City
+EXCEPT
+SELECT DISTINCT ct.name
+FROM Producer pr JOIN Product p
+ON pr.id = p.id_producer
+JOIN Category c ON c.id = p.id_category
+JOIN Address a ON a.id = pr.id_address
+JOIN City ct ON ct.id = a.id_city
+WHERE c.name LIKE 'Молочные'
