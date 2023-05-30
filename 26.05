@@ -4,8 +4,6 @@ JOIN Sale sl ON sl.id = s.id
 
 2)SELECT r.name
 FROM Region r
-EXCEPT
-SELECT DISTINCT c.name
 LEFT JOIN Producer pr ON pr.id address
 WHERE pr.id IS NULL
 
